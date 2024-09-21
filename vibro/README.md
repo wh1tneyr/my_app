@@ -1,6 +1,10 @@
-# vibro
+# Vibro
 
-A new Flutter project.
+¿Qué es la app? Es una aplicación diseñada para ofrecer tips y mensajes motivacionales personalizados según el estado de ánimo del usuario. Utilizando tecnología para interpretar cómo se siente cada persona en el momento, la app entrega mensajes únicos y positivos que pueden inspirar o mejorar el día de quien la use.
+
+¿Para qué sirve? La app ayuda a los usuarios a encontrar un pequeño impulso de motivación o un consejo positivo dependiendo de su estado emocional. Además, les permite compartir estos mensajes con amigos o utilizarlos para acompañar fotos en redes sociales, creando una experiencia más emocional y auténtica. Es perfecta para quienes buscan una forma rápida y personalizada de recibir ánimo o inspiración diaria.
+
+
 
 ## Getting Started
 
