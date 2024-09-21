@@ -163,7 +163,10 @@ cython_debug/
 
 files/*
 !files/.gitkeep
+documentation/*
 !documentation/.gitkeep
+datasets/*
 !datasets/.gitkeep
+
 
 
