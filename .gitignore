@@ -170,5 +170,18 @@ files/documentation/*
 files/datasets/*
 !files/datasets/.gitkeep
 
+# Flutter/Dart/Pub related
+*.dart_tool/
+.packages
+.pub-cache/
+build/
+
+# IDE related
+.idea/
+.vscode/
+*.iml
+
+# MacOS
+.DS_Store
 
 
