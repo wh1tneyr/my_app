@@ -92,10 +92,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void actualizarMensajePorEstado() {
-    setState(() {
-      mensajeActual = estadosAnimo[estadoSeleccionado] ?? mensajeActual;
-    });
-  }
+  setState(() {
+    // Seleccionar un mensaje aleatorio de la lista según el estado
+    mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {
