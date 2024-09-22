@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.blueGrey),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             Text(
               mensajeActual,
               style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.deepPurple),
