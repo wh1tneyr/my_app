@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     'No te rindas, sigue adelante.'
   ];
 
-  String mensajeActual;
+  String mensajeActual = ''; // Inicializa con un valor por defecto
 
   @override
   void initState() {
