@@ -99,6 +99,12 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
+              '¡Bienvenido a Vibro!\n\n¿Cómo te sientes hoy?\nElige tu estado de ánimo y aparecerá un mensaje para ti.',
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Text(
               mensajeActual,
               style: TextStyle(fontSize: 24),
               textAlign: TextAlign.center,
