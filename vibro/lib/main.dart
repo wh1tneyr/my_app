@@ -106,7 +106,10 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20),
             Text(
               mensajeActual,
-              style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.deepPurple),
+              style: TextStyle(
+                fontSize: 24, 
+                color: Colors.primaries[Random().nextInt(Colors.primaries.length)], // Color aleatorio
+  ),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
