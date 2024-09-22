@@ -24,15 +24,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<String> mensajes = [
-    '¡Tú puedes lograrlo!',
-    'Cada día es una nueva oportunidad.',
-    'Cree en ti mismo.',
-    'El éxito es el resultado de la preparación.',
-    'No te rindas, sigue adelante.',
-    // Agrega más mensajes aquí
-  ];
-
   final Map<String, List<String>> estadosAnimo = {
     '😄 Feliz': [
       '¡Sigue brillando y disfrutando cada momento!',
@@ -77,23 +68,22 @@ class _HomePageState extends State<HomePage> {
   };
 
   String mensajeActual = '';
-  String estadoSeleccionado = '😄 Feliz'; // Asegúrate de que haya un estado seleccionado al inicio
+  String estadoSeleccionado = '😄 Feliz'; // Valor inicial
 
   @override
   void initState() {
     super.initState();
-    mensajeActual = mensajes[Random().nextInt(mensajes.length)];
+    actualizarMensajePorEstado();
   }
 
   void cambiarMensaje() {
     setState(() {
-      mensajeActual = mensajes[Random().nextInt(mensajes.length)];
+      mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
     });
   }
 
   void actualizarMensajePorEstado() {
     setState(() {
-      // Seleccionar un mensaje aleatorio de la lista según el estado
       mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
     });
   }
@@ -119,8 +109,8 @@ class _HomePageState extends State<HomePage> {
               onChanged: (String? nuevoEstado) {
                 setState(() {
                   estadoSeleccionado = nuevoEstado!;
+                  actualizarMensajePorEstado(); // Cambiar mensaje al seleccionar nuevo estado
                 });
-                actualizarMensajePorEstado();
               },
               items: estadosAnimo.keys.map<DropdownMenuItem<String>>((String estado) {
                 return DropdownMenuItem<String>(
