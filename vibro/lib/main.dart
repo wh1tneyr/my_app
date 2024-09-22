@@ -33,13 +33,48 @@ class _HomePageState extends State<HomePage> {
     // Agrega más mensajes aquí
   ];
 
-  final Map<String, String> estadosAnimo = {
-    'Feliz': '¡Sigue brillando y disfrutando cada momento!',
-    'Triste': 'Es normal sentirse así, recuerda que mañana será un nuevo día.',
-    'Enojado': 'Respira profundo, la calma vendrá con el tiempo.',
-    'Ansioso': 'Tómate un momento para relajarte y enfocar tus pensamientos.',
-    'Motivado': '¡Sigue así! Estás en el camino correcto.',
-  };
+  final Map<String, List<String>> estadosAnimo = {
+    '😄 Feliz': [
+      '¡Sigue brillando y disfrutando cada momento!',
+      'La felicidad es contagiosa, ¡compártela!',
+      'Celebra tus pequeños logros.',
+      'Sonríe, hoy es un buen día.',
+      'Haz algo que te haga sentir bien.',
+      'La vida es hermosa, ¡aprovéchala al máximo!'
+      ],
+  '😢 Triste': [
+    'Es normal sentirse así, recuerda que mañana será un nuevo día.',
+    'Permítete sentir y luego sigue adelante.',
+    'Las nubes no duran para siempre.',
+    'Busca un poco de luz en tu día.',
+    'Está bien pedir ayuda cuando la necesites.',
+    'Recuerda que cada día es una nueva oportunidad.'
+    ],
+  '😠 Enojado': [
+    'Respira profundo, la calma vendrá con el tiempo.',
+    'Transforma tu enojo en energía positiva.',
+    'Recuerda que lo que importa es tu paz interior.',
+    'Permítete un momento para relajarte.',
+    'Encuentra algo que te haga reír.',
+    'Deja ir lo que no puedes controlar.'
+    ],
+  '😟 Ansioso': [
+    'Tómate un momento para relajarte y enfocar tus pensamientos.',
+    'Recuerda que el momento presente es todo lo que tienes.',
+    'Haz una pausa y respira profundamente.',
+    'Es normal sentirse así, está bien pedir apoyo.',
+    'Divídelo en pasos pequeños y manejables.',
+    'Confía en el proceso, todo estará bien.'
+    ],
+  '💪 Motivado': [
+    '¡Sigue así! Estás en el camino correcto.',
+    'Cada pequeño paso te acerca a tu meta.',
+    'Tu esfuerzo no es en vano, sigue avanzando.',
+    'Cree en ti mismo, ¡eres capaz de lograrlo!',
+    'El éxito es la suma de pequeños esfuerzos.',
+    'No dejes que los desafíos te detengan.'
+    ]
+    };
 
   String mensajeActual = '';
   String estadoSeleccionado = 'Feliz';
