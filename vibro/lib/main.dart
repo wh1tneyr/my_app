@@ -41,43 +41,43 @@ class _HomePageState extends State<HomePage> {
       'Sonríe, hoy es un buen día.',
       'Haz algo que te haga sentir bien.',
       'La vida es hermosa, ¡aprovéchala al máximo!'
-      ],
-  '😢 Triste': [
-    'Es normal sentirse así, recuerda que mañana será un nuevo día.',
-    'Permítete sentir y luego sigue adelante.',
-    'Las nubes no duran para siempre.',
-    'Busca un poco de luz en tu día.',
-    'Está bien pedir ayuda cuando la necesites.',
-    'Recuerda que cada día es una nueva oportunidad.'
     ],
-  '😠 Enojado': [
-    'Respira profundo, la calma vendrá con el tiempo.',
-    'Transforma tu enojo en energía positiva.',
-    'Recuerda que lo que importa es tu paz interior.',
-    'Permítete un momento para relajarte.',
-    'Encuentra algo que te haga reír.',
-    'Deja ir lo que no puedes controlar.'
+    '😢 Triste': [
+      'Es normal sentirse así, recuerda que mañana será un nuevo día.',
+      'Permítete sentir y luego sigue adelante.',
+      'Las nubes no duran para siempre.',
+      'Busca un poco de luz en tu día.',
+      'Está bien pedir ayuda cuando la necesites.',
+      'Recuerda que cada día es una nueva oportunidad.'
     ],
-  '😟 Ansioso': [
-    'Tómate un momento para relajarte y enfocar tus pensamientos.',
-    'Recuerda que el momento presente es todo lo que tienes.',
-    'Haz una pausa y respira profundamente.',
-    'Es normal sentirse así, está bien pedir apoyo.',
-    'Divídelo en pasos pequeños y manejables.',
-    'Confía en el proceso, todo estará bien.'
+    '😠 Enojado': [
+      'Respira profundo, la calma vendrá con el tiempo.',
+      'Transforma tu enojo en energía positiva.',
+      'Recuerda que lo que importa es tu paz interior.',
+      'Permítete un momento para relajarte.',
+      'Encuentra algo que te haga reír.',
+      'Deja ir lo que no puedes controlar.'
     ],
-  '💪 Motivado': [
-    '¡Sigue así! Estás en el camino correcto.',
-    'Cada pequeño paso te acerca a tu meta.',
-    'Tu esfuerzo no es en vano, sigue avanzando.',
-    'Cree en ti mismo, ¡eres capaz de lograrlo!',
-    'El éxito es la suma de pequeños esfuerzos.',
-    'No dejes que los desafíos te detengan.'
+    '😟 Ansioso': [
+      'Tómate un momento para relajarte y enfocar tus pensamientos.',
+      'Recuerda que el momento presente es todo lo que tienes.',
+      'Haz una pausa y respira profundamente.',
+      'Es normal sentirse así, está bien pedir apoyo.',
+      'Divídelo en pasos pequeños y manejables.',
+      'Confía en el proceso, todo estará bien.'
+    ],
+    '💪 Motivado': [
+      '¡Sigue así! Estás en el camino correcto.',
+      'Cada pequeño paso te acerca a tu meta.',
+      'Tu esfuerzo no es en vano, sigue avanzando.',
+      'Cree en ti mismo, ¡eres capaz de lograrlo!',
+      'El éxito es la suma de pequeños esfuerzos.',
+      'No dejes que los desafíos te detengan.'
     ]
-    };
+  };
 
   String mensajeActual = '';
-  String estadoSeleccionado = 'Feliz';
+  String estadoSeleccionado = '😄 Feliz'; // Asegúrate de que haya un estado seleccionado al inicio
 
   @override
   void initState() {
@@ -92,12 +92,11 @@ class _HomePageState extends State<HomePage> {
   }
 
   void actualizarMensajePorEstado() {
-  setState(() {
-    // Seleccionar un mensaje aleatorio de la lista según el estado
-    mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
-  });
-}
-
+    setState(() {
+      // Seleccionar un mensaje aleatorio de la lista según el estado
+      mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
