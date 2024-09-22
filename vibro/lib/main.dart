@@ -130,7 +130,6 @@ class _HomePageState extends State<HomePage> {
               onPressed: cambiarMensaje,
               child: Text('Nuevo Mensaje'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
                 textStyle: TextStyle(fontSize: 18),
               ),
             ),
