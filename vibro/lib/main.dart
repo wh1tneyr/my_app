@@ -1,4 +1,4 @@
-import 'dart:math'; // Asegúrate de importar este paquete
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,38 +25,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<String> mensajes = [
-  '¡Tú puedes lograrlo!',
-  'Cada día es una nueva oportunidad.',
-  'Cree en ti mismo.',
-  'El éxito es el resultado de la preparación.',
-  'No te rindas, sigue adelante.',
-  'Eres más fuerte de lo que piensas.',
-  'La confianza en ti mismo es el primer secreto del éxito.',
-  'Cada pequeño paso cuenta.',
-  'Aprende a amarte a ti mismo, eres único.',
-  'Los errores son oportunidades de aprendizaje.',
-  'El fracaso es solo un paso hacia el éxito.',
-  'Tu voz importa. Hazla escuchar.',
-  'La felicidad es un viaje, no un destino.',
-  'Eres digno de amor y respeto.',
-  'No dejes que nadie apague tu luz.',
-  'Tus sueños son válidos.',
-  'Hoy es un buen día para empezar de nuevo.',
-  'Eres capaz de cosas increíbles.',
-  'El amor propio es el comienzo de un romance eterno.',
-  'Tu valor no disminuye por la incapacidad de alguien de ver tu valor.',
-  'Aprecia tus logros, por pequeños que sean.',
-  'La vida es un reflejo de tus pensamientos. Manténlos positivos.',
-  'Sé la mejor versión de ti mismo.',
-  'Tu felicidad es una prioridad.',
-  'No te compares con los demás; tu viaje es único.',
-  'La autoconfianza es el primer paso hacia el éxito.',
-  'Siempre hay una razón para sonreír.',
-  'Eres suficiente, tal como eres.',
-  'El amor propio es el primer paso hacia la verdadera felicidad.'
+    '¡Tú puedes lograrlo!',
+    'Cada día es una nueva oportunidad.',
+    'Cree en ti mismo.',
+    'El éxito es el resultado de la preparación.',
+    'No te rindas, sigue adelante.',
+    // Agrega más mensajes aquí
   ];
 
-  String mensajeActual = ''; // Inicializa con un valor por defecto
+  final Map<String, String> estadosAnimo = {
+    'Feliz': '¡Sigue brillando y disfrutando cada momento!',
+    'Triste': 'Es normal sentirse así, recuerda que mañana será un nuevo día.',
+    'Enojado': 'Respira profundo, la calma vendrá con el tiempo.',
+    'Ansioso': 'Tómate un momento para relajarte y enfocar tus pensamientos.',
+    'Motivado': '¡Sigue así! Estás en el camino correcto.',
+  };
+
+  String mensajeActual = '';
+  String estadoSeleccionado = 'Feliz';
 
   @override
   void initState() {
@@ -67,6 +53,12 @@ class _HomePageState extends State<HomePage> {
   void cambiarMensaje() {
     setState(() {
       mensajeActual = mensajes[Random().nextInt(mensajes.length)];
+    });
+  }
+
+  void actualizarMensajePorEstado() {
+    setState(() {
+      mensajeActual = estadosAnimo[estadoSeleccionado] ?? mensajeActual;
     });
   }
 
@@ -84,6 +76,22 @@ class _HomePageState extends State<HomePage> {
               mensajeActual,
               style: TextStyle(fontSize: 24),
               textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            DropdownButton<String>(
+              value: estadoSeleccionado,
+              onChanged: (String? nuevoEstado) {
+                setState(() {
+                  estadoSeleccionado = nuevoEstado!;
+                });
+                actualizarMensajePorEstado();
+              },
+              items: estadosAnimo.keys.map<DropdownMenuItem<String>>((String estado) {
+                return DropdownMenuItem<String>(
+                  value: estado,
+                  child: Text(estado),
+                );
+              }).toList(),
             ),
             SizedBox(height: 20),
             ElevatedButton(
