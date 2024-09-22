@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
   };
 
   String mensajeActual = '';
-  String estadoSeleccionado = '😄 Feliz'; // Valor inicial
+  String estadoSeleccionado = '😄 Feliz';
 
   @override
   void initState() {
@@ -92,21 +92,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('¡Bienvenido a Vibro!'),
+        title: Text('¡Bienvenido a Vibro!', style: TextStyle(fontFamily: 'Roboto', fontSize: 24, fontWeight: FontWeight.bold)),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              '¿Cómo te sientes hoy?\nElige tu estado de ánimo y aparecerá un mensaje para ti.',
-              style: TextStyle(fontSize: 20),
+              '¡Bienvenido a Vibro!\n\n¿Cómo te sientes hoy?\nElige tu estado de ánimo y aparecerá un mensaje para ti.',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.blueGrey),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
             Text(
               mensajeActual,
-              style: TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.deepPurple),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
               onChanged: (String? nuevoEstado) {
                 setState(() {
                   estadoSeleccionado = nuevoEstado!;
-                  actualizarMensajePorEstado(); // Cambiar mensaje al seleccionar nuevo estado
+                  actualizarMensajePorEstado();
                 });
               },
               items: estadosAnimo.keys.map<DropdownMenuItem<String>>((String estado) {
@@ -129,6 +129,10 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(
               onPressed: cambiarMensaje,
               child: Text('Nuevo Mensaje'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.blue,
+                textStyle: TextStyle(fontSize: 18),
+              ),
             ),
           ],
         ),
