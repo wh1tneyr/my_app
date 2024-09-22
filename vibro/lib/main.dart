@@ -1,3 +1,4 @@
+import 'dart:math'; // Asegúrate de importar este paquete
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,8 +17,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-import 'dart:math'; // Asegúrate de importar este paquete
 
 class HomePage extends StatefulWidget {
   @override
