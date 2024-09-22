@@ -76,13 +76,13 @@ class _HomePageState extends State<HomePage> {
     actualizarMensajePorEstado();
   }
 
-  void cambiarMensaje() {
+  void actualizarMensajePorEstado() {
     setState(() {
       mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
     });
   }
 
-  void actualizarMensajePorEstado() {
+  void cambiarMensaje() {
     setState(() {
       mensajeActual = estadosAnimo[estadoSeleccionado]![Random().nextInt(estadosAnimo[estadoSeleccionado]!.length)];
     });
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('¡Bienvenido a Vibro!', style: TextStyle(fontFamily: 'Roboto', fontSize: 24, fontWeight: FontWeight.bold)),
+        title: Text('¡Bienvenido a Vibro!'),
       ),
       body: Center(
         child: Column(
@@ -100,13 +100,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text(
               '¿Cómo te sientes hoy?\nElige tu estado de ánimo y aparecerá un mensaje para ti.',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.blueGrey),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            Text(
-              mensajeActual,
-              style: TextStyle(fontSize: 24, fontStyle: FontStyle.italic, color: Colors.deepPurple),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: Colors.black),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
@@ -115,23 +109,45 @@ class _HomePageState extends State<HomePage> {
               onChanged: (String? nuevoEstado) {
                 setState(() {
                   estadoSeleccionado = nuevoEstado!;
-                  actualizarMensajePorEstado();
                 });
+                actualizarMensajePorEstado();
               },
               items: estadosAnimo.keys.map<DropdownMenuItem<String>>((String estado) {
                 return DropdownMenuItem<String>(
                   value: estado,
-                  child: Text(estado),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+                    decoration: BoxDecoration(
+                      color: Colors.blue[100], // Color de fondo del botón
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Text(
+                      estado,
+                      style: TextStyle(fontSize: 18, color: Colors.black),
+                    ),
+                  ),
                 );
               }).toList(),
+              dropdownColor: Colors.blue[50], // Color del menú desplegable
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: cambiarMensaje,
-              child: Text('Nuevo Mensaje'),
               style: ElevatedButton.styleFrom(
-                textStyle: TextStyle(fontSize: 18),
+                backgroundColor: Colors.blue, // Color de fondo
+                foregroundColor: Colors.white, // Color del texto
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
+              child: Text(
+                'Nuevo Mensaje',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              mensajeActual,
+              style: TextStyle(fontSize: 24, color: Colors.primaries[Random().nextInt(Colors.primaries.length)]), // Color aleatorio
+              textAlign: TextAlign.center,
             ),
           ],
         ),
